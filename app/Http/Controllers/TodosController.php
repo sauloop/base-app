@@ -69,7 +69,8 @@ class TodosController extends Controller
     public function edit($id)
     {
         $todo = Todo::find($id);
-        return view('todos.edit', ['todo' => $todo]);
+        $categories = Category::all();
+        return view('todos.edit', ['todo' => $todo, 'categories' => $categories]);
     }
 
     /**
@@ -83,6 +84,7 @@ class TodosController extends Controller
     {
         $todo = Todo::find($id);
         $todo->title = $request->title;
+        $todo->category_id = $request->category_id;
         $todo->save();
 
         return redirect()->route('todos.index')->with('success', 'Tarea actualizada');
