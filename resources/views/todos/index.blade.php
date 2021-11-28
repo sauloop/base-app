@@ -21,14 +21,31 @@
                             <label for="title" class="form-label"><strong>Título</strong></label>
                             <input type="text" name="title" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary"> Crear tarea</button>
+                        <div class="mb-3">
+                            <label for="category_id" class="form-label"><strong>Categoría</strong></label>
+                            <select name="category_id" class="form-select">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear</button>
                     </form>
                 </div>
                 <div>
                     <br>
                     @foreach ($todos as $todo)
-                        <div>
-                            <p>{{ $todo->title }}</p>
+                        <div class="row py-1">
+                            <div class="col-md-9 d-flex align-items-center">
+                                <a href="{{ route('todos.edit', ['todo' => $todo->id]) }}">{{ $todo->title }}</a>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-end">
+                                <form action="{{ route('todos.destroy', ['todo' => $todo->id]) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm">Borrar</button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>
