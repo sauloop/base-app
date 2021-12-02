@@ -59,9 +59,7 @@ return [
             'secret' => env('DO_SPACES_SECRET_ACCESS_KEY'),
             'region' => env('DO_SPACES_DEFAULT_REGION'),
             'bucket' => env('DO_SPACES_BUCKET'),
-            'url' => env('DO_SPACES_URL'),
             'endpoint' => env('DO_SPACES_ENDPOINT'),
-            'use_path_style_endpoint' => env('DO_SPACES_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
     ],
