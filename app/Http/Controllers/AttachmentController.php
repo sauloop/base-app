@@ -18,7 +18,7 @@ class AttachmentController extends Controller
 
     public function show()
     {
-        $file = Storage::get('uploads/1638367614.pdf');
+        $file = Storage::get('uploads/test.pdf');
 
         $headers = [
             'Content-Type' => 'application/pdf',
