@@ -60,17 +60,7 @@ return [
             'region' => env('DO_SPACES_DEFAULT_REGION'),
             'bucket' => env('DO_SPACES_BUCKET'),
             'endpoint' => env('DO_SPACES_ENDPOINT'),
-        ],
-
-        'spaces' => [
-            'driver' => 's3',
-            'key' => env('DO_SPACES_ACCESS_KEY_ID'),
-            'secret' => env('DO_SPACES_SECRET_ACCESS_KEY'),
-            'region' => env('DO_SPACES_DEFAULT_REGION'),
-            'bucket' => env('DO_SPACES_BUCKET'),
-            'endpoint' => env('DO_SPACES_ENDPOINT'),
-            'bucket_endpoint' => true,
-            'visibility' => 'public',
+            'bucket_endpoint' => env('DO_SPACES_BUCKET_ENDPOINT'),
           ],
 
     ],
